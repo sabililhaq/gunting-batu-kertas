@@ -1,0 +1,40 @@
+<html>
+<head>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+<script src="webcam.js"></script>
+<script src="rps-dataset.js"></script>
+<style>
+	#boxB
+	{
+		transform: rotateY(180deg);
+		-webkit-transform:rotateY(180deg); /* Safari and Chrome */
+		-moz-transform:rotateY(180deg); /* Firefox */
+	}
+	div.c {
+	text-align: right;
+	}
+</style>
+</head>
+<body>
+	
+	<button type="button" id="0" onclick="handleButton(this)" >Batu</button>
+	<button type="button" id="1" onclick="handleButton(this)" >Kertas</button>
+	<button type="button" id="2" onclick="handleButton(this)" >Gunting</button>
+	<div id="rocksamples">Batu Samples:</div>
+	<div id="papersamples">Kertas Samples:</div>
+	<div id="scissorssamples">Gunting Samples:</div>
+	<button type="button" id="train" onclick="doTraining()" >Train Network</button>
+	<div id="dummy">Once training is complete, click 'Start Predicting' to see predictions, and 'Stop Predicting' to end</div><br>
+	<div>
+		<div id = "boxB" class = "c">
+			<video autoplay playsinline muted id="wc" width="224" height="224"></video>
+		</div>
+	</div><br>
+	<div id="prediction"></div>
+
+	<button type="button" id="startPredicting" onclick="startPredicting()" >Start Predicting</button>
+	<button type="button" id="stopPredicting" onclick="stopPredicting()" >Stop Predicting</button>
+</body>
+
+<script src="index.js"></script>
+</html>
